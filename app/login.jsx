@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import React, { useState } from "react";
+import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import { Picker } from "@react-native-picker/picker";
+import { router } from "expo-router";
 
-export default function LoginScreen({ navigation }) {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [organization, setOrganization] = useState('');
-  const [type, setType] = useState('');
+export default function LoginScreen() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [organization, setOrganization] = useState("");
+  const [type, setType] = useState("");
 
   const handleLogin = () => {
-    // Basic validation
     if (!username || !password || !organization || !type) {
-      alert('Please fill all fields');
+      alert("Please fill all fields");
       return;
     }
-    // navigation.navigate('Home', { username }); // pass username to Home
+    router.push("/home"); // navigate to home
   };
 
   return (
@@ -64,8 +64,8 @@ export default function LoginScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, justifyContent: 'center' },
-  title: { fontSize: 28, fontWeight: 'bold', marginBottom: 20 },
+  container: { flex: 1, padding: 20, justifyContent: "center" },
+  title: { fontSize: 28, fontWeight: "bold", marginBottom: 20 },
   input: { borderWidth: 1, padding: 12, marginBottom: 15, borderRadius: 5 },
-  forget: { marginTop: 10, color: 'blue', textAlign: 'center' },
+  forget: { marginTop: 10, color: "blue", textAlign: "center" },
 });
